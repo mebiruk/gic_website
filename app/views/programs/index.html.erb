@@ -3,7 +3,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><%=link_to "Home","/"%></li>
           <li>Programs</li>
         </ol>
         <h2>Programs</h2>
@@ -28,7 +28,7 @@
 
 	   						<h3 class="post-title"><%= pro.program_name%></h3>
 	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
+	   						<span class="post-date mb-4" style="text-align: justify;"><%= truncate(pro.overview.html_safe, :length=>256)%> .</span>
 	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 	   					</div>
 	   				</div>
@@ -46,7 +46,7 @@
           <div class="text-center">
             <h3><%= m.headline_title%></h3>
             <p><%= m.description%></p>
-            <a class="cta-btn" href="<%= m.action%>">Learn more</a>
+            <%= link_to "Learn more", "#{m.action}", class:"cta-btn"%>
           </div>
         <% end %>
       </div>
@@ -70,7 +70,7 @@
 
 	   						<h3 class="post-title"><%= pro.program_name%></h3>
 	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
+	   						<span class="post-date mb-4"><%= truncate(pro.overview.html_safe, :length=>256)%> .</span>
 	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 	   					</div>
 	   				</div>

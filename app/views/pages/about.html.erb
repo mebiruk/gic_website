@@ -3,7 +3,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="/">Home</a></li>
+          <li><%= link_to "Home","/"%></li>
           <li>About</li>
         </ol>
         <h2>About us</h2>
@@ -407,7 +407,7 @@
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
 					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<%= link_to "Learn more", "#{m.action}", class:"cta-btn"%>
 				</div>
 			<% end %>
   </div>

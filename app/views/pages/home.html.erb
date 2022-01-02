@@ -10,11 +10,11 @@
    						<%= image_tag "logo223.png", size: "250x75"%>
    						<h1>YIC Started online masters Registration </h1>
    						<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
-   						<a href="https://sis.yic.edu.et/students/sign_up" class="btn-get-started scrollto">Apply now</a>
+   						<%= link_to 'Apply now',"https://sis.yic.edu.et/students/sign_up", class:"btn-get-started scrollto"%>
    					</div>
    					<div class="col-12 col-xl-6 mt-3 mb-2">
    						<div class="embed-responsive embed-responsive-16by9">
-   							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Sxuk-tbnNtE" allowfullscreen></iframe>
+						   <%=embed(@college.video_link)%>
    						</div>
    					</div>
    				</div>
@@ -36,11 +36,14 @@
 				
 				<% @admissions.each do |admission| %>
 					<div class="col-lg-3 col-md-6">
-						<a href="admissions/<%= admission.id%>">
+						<%= link_to ("admissions/#{admission.id}") do %>
 							<div class="icon-box d-flex justify-content-center">
-								<h4 class="d-flex align-items-center"><a href="admissions/<%= admission.id%>"><%= admission.modality %> <%= admission.study_level%></a></h4>
+								<h4 class="d-flex align-items-center">
+								<%= link_to "#{admission.modality} #{ admission.study_level}","admissions/#{admission.id}"%>
+								</h4>
 							</div>
-						</a>
+							
+						<%end%>
 					</div>
 				<% end %>
    			</div>
@@ -54,7 +57,7 @@
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
 					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<%link_to "Learn more","#{m.action}", class:"cta-btn"%>
 				</div>
 			<% end %>
    		</div>
@@ -77,7 +80,7 @@
 							<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
 							<h3 class="post-title"><%= pro.program_name%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
-							<span class="post-date mb-4"><%= pro.program_description%></span>
+							<p class="post-date mb-4" style="text-align: justify;"><%=truncate(pro.overview.html_safe, :length=>256)%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -104,7 +107,7 @@
 							<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
 							<h3 class="post-title"><%= pro.program_name%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
-							<span class="post-date mb-4"><%= pro.program_description%></span>
+							<span class="post-date mb-4" style="text-align: justify;"><%= truncate(pro.overview.html_safe, :length=>256)%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -128,7 +131,10 @@
    						<p>
    							<%= @college.overview %>
    						</p>
-   						<a href="about" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
+						<%=link_to  "about", class:"about-btn" do%>
+							<span>About us</span><i class="bx bx-chevron-right"></i>
+						<%end%>
+   						<%# <%= icon("chevron-right", class: "text-success") %> 
    					</div>
    				</div>
    				<div class="col-xl-7 d-flex align-items-stretch">
@@ -176,7 +182,10 @@
 						<div class="post-img"><%= image_tag n.photo %></div>
 						<span class="post-date"><%= n.created_at%></span>
 						<h3 class="post-title"><%= n.news_title %></h3>
-						<a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+						<p style="text-align: justify;"><%=truncate(n.overview, :length=>256)%></p>
+						<%=link_to "news.html", class:"readmore stretched-link mt-auto" do%>
+							<span>Read More</span><i class="bi bi-arrow-right"></i>
+						<%end%>
 					</div>
 					</div>
 				<% end %>
@@ -192,7 +201,7 @@
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
 					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<%link_to "#{m.action}", class:"cta-btn" do %>Learn more<%end%>
 				</div>
 			<% end %>
     	</div>

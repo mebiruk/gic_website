@@ -8,6 +8,8 @@ class NewsController < ApplicationController
 
   # GET /news/1 or /news/1.json
   def show
+    @news= News.find(params[:id])
+    @last_five_news=News.last(5)
   end
 
   # GET /news/new
