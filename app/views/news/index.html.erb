@@ -15,23 +15,25 @@
     <section id="recent-blog-posts" class="recent-blog-posts"> 
       <div class="container" data-aos="fade-up">
         <div class="row">
-          <div class="col-lg-8 entries">
+          <div class="entries">
+          <%= paginate @news %>
           <div class="row">
-    			<% @news.each do |n|%>
-            <div class="col-lg-6">
-              <div class="post-box">
-                <div class="post-img"><%= image_tag n.photo %></div>
-                <span class="post-date"><%= n.created_at%></span>
-                <h3 class="post-title"><%= n.news_title %></h3>
-                <p style="text-align: justify;"><%=truncate(n.overview, :length=>256)%></p>
-                <%=link_to news_path(n.id), class:"readmore stretched-link mt-auto" do%>
-                  <span>Read More</span><i class="bi bi-arrow-right"></i>
-                <%end%>
-              </div>
-            </div>
-				<% end %>
+            <% @news.each do |n|%>
+                <div class="col-lg-4">
+                    <div class="post-box">
+                      <div class="post-img"><%= image_tag n.photo %></div>
+                        <span class="post-date"><%= n.created_at%></span>
+                        <h3 class="post-title"><%= n.news_title %></h3>
+                        <p style="text-align: justify;"><%=truncate(n.overview, :length=>256)%></p>
+                        <%=link_to news_path(n), class:"readmore stretched-link mt-auto" do%>
+                          <span>Read More</span><i class="bi bi-arrow-right"></i>
+                        <%end%>
+                    </div>
+                </div>
+            <% end %>
     		</div>
-            <div class="blog-pagination">
+        <%= paginate @news %>
+            <%# <div class="blog-pagination">
               <ul class="justify-content-center">
                 <li class="disabled"><i class="icofont-rounded-left"></i></li>
                 <li><a href="#">1</a></li>
@@ -39,7 +41,7 @@
                 <li><a href="#">3</a></li>
                 <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
               </ul>
-            </div>
+            </div> %>
           </div>
 </section>
           <%# <div class="col-lg-4">

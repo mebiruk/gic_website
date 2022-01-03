@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     @accreditations = Accreditation.all
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
-    @news = News.all
+    @news = @news = News.order('created_at DESC').last(6)
   end
 
   def accreditation

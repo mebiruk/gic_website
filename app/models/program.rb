@@ -17,4 +17,7 @@ class Program < ApplicationRecord
   has_many :career_opportunities
 
   has_one_attached :photo
+
+  extend FriendlyId
+  friendly_id :program_name
 end

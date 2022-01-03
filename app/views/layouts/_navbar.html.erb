@@ -17,7 +17,7 @@
             <li class="drop-down"><%= link_to "Admission", "#"%>
               <ul>
                 <% Admission.all.each do |admission|%>
-                  <li><%= link_to("#{admission.admission_name}", {controller: "admissions", action: "show", id: admission.id} )%></li>
+                  <li><%= link_to("#{admission.admission_name}", {controller: "admissions", action: "show", id: admission} )%></li>
                   <!-- <li><%= link_to "Regular Masters", "regular_masters.html"%></li>
                   <li><%= link_to "Online Masters","#"%></li>
                   <li><%= link_to "Extension Degree", "#" %></li>
