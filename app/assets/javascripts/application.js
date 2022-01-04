@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//=require('bootstrap-icons/font/bootstrap-icons.css')
 //= require jquery3
 //= require popper
 //= require bootstrap
@@ -23,6 +23,7 @@
 //= require isotope.pkgd.min.js
 //= require venobox.min.js
 //= require aos.js
+
 
 
 

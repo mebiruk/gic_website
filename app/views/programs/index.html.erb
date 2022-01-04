@@ -3,7 +3,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><%=link_to "Home","/"%></li>
           <li>Programs</li>
         </ol>
         <h2>Programs</h2>
@@ -26,10 +26,10 @@
 	   					<div class="post-box bg-white">
 	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
 
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
-	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
-	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+	   						<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
+	   						<span class="post-date"><strong>modality:- <%= pro.modality.html_safe%> </strong></span>
+	   						<span class="post-date mb-4" style="text-align: justify;"><%= truncate(pro.overview.html_safe, :length=>256)%> .</span>
+	   						<%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
 	   					</div>
 	   				</div>
 	    		<%end%>
@@ -60,9 +60,9 @@
 	   					<div class="post-box bg-white">
 	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
 
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
+	   						<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
+	   						<span class="post-date mb-4"><%= truncate((pro.overview.html_safe) , :length=>256)%> .</span>
 	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 	   					</div>
 	   				</div>

@@ -3,7 +3,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="/">Home</a></li>
+          <li><%= link_to "Home","/"%></li>
           <li>About</li>
         </ol>
         <h2>About us</h2>
@@ -307,12 +307,14 @@
 
     <div class="row">
       <% @news.each do |n|%>
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-5">
           <div class="post-box">
             <div class="post-img"><%= image_tag n.photo %></div>
             <span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%></span>
             <h3 class="post-title"><%= n.news_title.html_safe %></h3>
-            <a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <%=link_to news_path(n), class:"readmore stretched-link mt-auto" do%>
+							<span>Read More</span><i class="bi bi-arrow-right"></i>
+						<%end%>
           </div>
         </div>
       <% end %>
