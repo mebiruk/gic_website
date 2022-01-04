@@ -4,6 +4,7 @@ class Program < ApplicationRecord
     validates :study_level , :presence => true
     validates :modality , :presence => true
     validates :program_duration , :presence => true
+	validates :credit_hour, :presence =>true
   ##scope
   	scope :recently_added, lambda { where('created_at >= ?', 1.week.ago)}
   	scope :undergraduate, lambda { where(study_level: "undergraduate")}
@@ -14,7 +15,7 @@ class Program < ApplicationRecord
   	scope :distance, lambda { where(modality: "distance")}
   ##associations
 	has_many :accreditations
-  has_many :career_opportunities
+	has_many :career_opportunities
 
-  has_one_attached :photo
+	has_one_attached :photo
 end

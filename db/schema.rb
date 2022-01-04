@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_111052) do
+ActiveRecord::Schema.define(version: 2022_01_02_150658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.string "last_updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "goal"
+    t.string "video_link"
+  end
+
+  create_table "facuilties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "marketing_sections", force: :cascade do |t|
@@ -180,6 +188,9 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.string "last_updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "facuilty_id"
+    t.float "credit_hour"
+    t.index ["facuilty_id"], name: "index_programs_on_facuilty_id"
   end
 
   create_table "section_headlines", force: :cascade do |t|
@@ -231,4 +242,5 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "programs", "facuilties"
 end

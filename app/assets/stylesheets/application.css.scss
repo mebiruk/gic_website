@@ -1059,10 +1059,17 @@ section {
   overflow: hidden;
   margin: -30px -30px 15px -30px;
   position: relative;
+  max-height: 500px;
 }
 
 .recent-blog-posts .post-box .post-img img {
-  height: 300px;
+
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  position: center;
+  margin: auto;
+  display: block;
   /*width: 300px;*/
   transition: 0.5s;
 }
@@ -2277,14 +2284,7 @@ section {
   color: #036696;
 }
 
-.blog .sidebar .recent-posts time {
-  display: block;
-  margin-left: 95px;
-  font-style: italic;
-  font-size: 14px;
-  color: #777777;
-}
-
+.blog .sidebar .recent-posts 
 .blog .sidebar .tags {
   margin-bottom: -10px;
 }

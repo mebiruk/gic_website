@@ -44,23 +44,15 @@
       <div class="container aos-init aos-animate " data-aos="zoom-in">
         <% @marketing.where(page_to_display: 'programs').each do |m|%>
           <div class="text-center">
-            <h3><%= m.headline_title%></h3>
-            <p><%= m.description%></p>
-            <a class="cta-btn" href="<%= m.action%>">Learn more</a>
+            <h3><%= m.headline_title.html_safe%></h3>
+            <p><%= m.description.html_safe%></p>
+            <%= link_to "Learn more", "#{m.action}", class:"cta-btn"%>
           </div>
         <% end %>
       </div>
     </section> <!-- End Marketing -->
     
     <section id="recent-blog-posts" class="recent-blog-posts">
-
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-
-        <header class="section-header">
-          <!-- <h2>Programs</h2> -->
-          <p>Our Masters Programs</p>
-        </header>
-
         <div class="row">
 
           <%Program.where(study_level: 'graduate').each do |pro|%>
@@ -107,7 +99,7 @@
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>info@yic.edu.et<br>contact@yic.edu.et</p>
+                  <p>info@heuc@edu.et<br>contact@heuc@edu.et</p>
                 </div>
               </div>
               <div class="col-md-6">

@@ -1,6 +1,6 @@
 ActiveAdmin.register Program do
 
-  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
+  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :credit_hour,:photo
 
   index do
     selectable_column
@@ -42,6 +42,7 @@ ActiveAdmin.register Program do
       f.input :program_duration, as: :select, :collection => [1, 2,3,4,5,6,7], :include_blank => false
       f.input :monthly_tuition
       f.input :total_tuition
+      f.input :credit_hour
       f.input :photo, as: :file
       if f.object.new_record?
         f.input :created_by, as: :hidden, :input_html => { :value => current_admin_user.name.full}
@@ -63,6 +64,7 @@ ActiveAdmin.register Program do
         row :program_duration
         number_row :total_tuition, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2 
         number_row :monthly_tuition, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2 
+        number_row :credit_hour, as: :currency, unit: "hour",  format: "%n %u" ,delimiter: ",", precision: 2 
         row :created_by
         row :last_updated_by
         row :created_at

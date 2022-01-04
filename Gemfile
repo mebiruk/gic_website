@@ -50,6 +50,15 @@ gem "barby", "~> 0.6.8"
 gem "active_admin_import"
 gem 'active_admin_scoped_collection_actions'
 gem 'ckeditor', '~> 4.3.0' 
+
+
+gem 'rack-google-analytics'
+
+gem 'google-api-client'  # v. 0.11
+gem 'omniauth-google-oauth2' # v. 0.4.1 with Devise
+
+
+# In a model or controller somewhere...
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -4,4 +4,6 @@ class Staff < ApplicationRecord
 		validates :job_title, :presence => true
 
 		has_one_attached :photo
+
+		has_one_attached :office_photo
 end

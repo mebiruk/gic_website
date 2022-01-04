@@ -26,8 +26,13 @@
               </div>
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= n.published_by%></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= n.created_at%></time></a></li>               
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= n.published_by.html_safe%></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> 
+                    <a href="blog-single.html">
+                      <span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%>
+                      </span>
+                    </a>
+                  </li>               
                 </ul>
               </div>
               <div class="entry-content">
