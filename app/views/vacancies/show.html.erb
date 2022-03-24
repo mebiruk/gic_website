@@ -37,7 +37,12 @@
 		  	<span class="text-darken-3 lighten-3">City: </span><span class="grey-text text-darken-3 lighten-3">  &ensp;<%= @vacancy.city%> </span><br>
 		  	<span class="text-darken-3 lighten-3">Catagory: </span><span class="grey-text text-darken-3 lighten-3"> &ensp;<%= @vacancy.catagory %>  </span><br>
 		  	<span class="text-darken-3 lighten-3">Career Level: </span><span class="grey-text text-darken-3 lighten-3">&ensp;<%= @vacancy.career_level%> </span><br>
-		  	<span class="text-darken-3 lighten-3">Salary:</span><span class="grey-text text-darken-3 lighten-3">  &ensp;<%= @vacancy.salary%> ETB </span><br>
+		  	<span class="text-darken-3 lighten-3">Salary:</span><span class="grey-text text-darken-3 lighten-3">  &ensp;
+			  <% if @vacancy.salary.is_a? Integer %>
+				  <%= @vacancy.salary%> ETB </span><br>
+			  <% else %>
+				  <%= @vacancy.salary%></span><br>
+			  <% end %>
 		  	<span class="text-darken-3 lighten-3">Employment Type:</span><span class="grey-text text-darken-3 lighten-3">  &ensp;<%= @vacancy.employment_type%> </span><br>
 		  	<!-- fix the deadline and created at date by making it to count the dates -->
 		  	<span class="text-darken-3 lighten-3">Deadline:</span><span class="grey-text text-darken-3 
