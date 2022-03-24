@@ -17,7 +17,7 @@ ActiveAdmin.register Program do
 
   filter :program_name
   filter :study_level, as: :select, :collection => ["undergraduate", "graduate", "training","research" ]
-  filter :modality, as: :select, :collection => ["online", "regular", "evening", "weekend"]
+  filter :modality, as: :select, :collection => ["online", "regular", "evening", "weekend","training"]
   filter :program_duration, as: :select, :collection => [1, 2,3,4,5,6,7]       
   filter :created_by
   filter :last_updated_by
