@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :departments
   resources :frequently_asked_questions
   resources :branches
   get 'contact' => 'pages#contact'

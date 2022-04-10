@@ -1,6 +1,6 @@
 ActiveAdmin.register Program do
 
-  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :credit_hour,:photo, career_opportunities_attributes: [:id,:title]
+  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:display_on_home,:created_by,:last_updated_by, :department_id, :credit_hour,:photo, career_opportunities_attributes: [:id,:title]
 
   index do
     selectable_column
@@ -8,6 +8,11 @@ ActiveAdmin.register Program do
     column :study_level
     column :modality
     column "duration",:program_duration
+    column "Department" do |m|
+      if m.department_id.present?
+        dep = Department.find(m.department_id).name
+      end
+    end
     number_column "Tuition",:total_tuition, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2 
     column "Created At", sortable: true do |c|
       c.created_at.strftime("%b %d, %Y")
@@ -35,6 +40,7 @@ ActiveAdmin.register Program do
     f.semantic_errors
     f.inputs "porgram information" do
       f.input :program_name
+      f.input :department_id, as: :select, collection: Department.all.map { |department| [department.name, department.id] }
       f.input :overview,  :as => :ckeditor
       f.input :program_description,  :as => :ckeditor
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate", "training","research"], :include_blank => false
@@ -43,6 +49,7 @@ ActiveAdmin.register Program do
       f.input :monthly_tuition
       f.input :total_tuition
       f.input :credit_hour
+      f.input :display_on_home, as: :boolean
       f.input :photo, as: :file
 
       f.inputs 'Career Opportunities' do
@@ -75,6 +82,10 @@ ActiveAdmin.register Program do
         row :last_updated_by
         row :created_at
         row :updated_at
+        row :display_on_home
+        row "Department" do |m|
+          usr = Department.find(m.department_id).name
+        end
         row "photo" do |pt|
           span image_tag(pt.photo, size: '300x300', class: "img-corner")
         end

@@ -30,6 +30,7 @@ class Ability
         can :manage, Service
         can :manage, Vacancy
         can :manage, Staff
+        can :manage, Department
         can :manage, VisitorComment
         can :manage, FrequentlyAskedQuestion
     when "finance"

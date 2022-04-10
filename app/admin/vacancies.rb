@@ -1,6 +1,6 @@
 ActiveAdmin.register Vacancy do
 
-	permit_params :admin_user_id, :title,:description,:deadline,:salary,:number_of_employee,:catagory,:career_level,:employment_type,:requirement,:organization_name,:website,:email,:city,:subcity,:address_1,:address_2,:phone_number_1,:phone_number_2
+  permit_params :admin_user_id, :title,:description,:deadline,:salary,:number_of_employee,:catagory,:career_level,:employment_type,:requirement,:organization_name,:website,:email,:city,:subcity,:address_1,:address_2,:phone_number_1,:phone_number_2
 
 
   controller do

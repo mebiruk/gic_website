@@ -3,21 +3,21 @@ class ProgramsController < ApplicationController
 
   # GET /programs or /programs.json
   def index
-    @programs = Program.all
-    @marketing = MarketingSection.all
-  
+    @programs = Program.all.order("created_at DESC")
+    @marketing = MarketingSection.all.order("created_at DESC")
+    @departments = Department.all.order("created_at DESC")
   end
 
   def trainings
-     @programs = Program.all
-    @marketing = MarketingSection.all
+     @programs = Program.all.order("created_at DESC")
+    @marketing = MarketingSection.all.order("created_at DESC")
   
   end
   # GET /programs/1 or /programs/1.json
   def show
     @programs = Program.find(params[:id])
-    @marketing = MarketingSection.all
-    @careerOpportunity = CareerOpportunity.all
+    @marketing = MarketingSection.all.order("created_at DESC")
+    @careerOpportunity = CareerOpportunity.all.order("created_at DESC")
   end
 
   # GET /programs/new
