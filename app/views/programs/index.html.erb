@@ -53,7 +53,10 @@
             </div>
             <!-- course item -->
         <%end%>
-        </div>
+        <% if Program.where(study_level: 'undergraduate').where(department_id: dep.id).blank? %>
+        <%else%>
+          </div>
+        <% end %>
     <% end %>
     </div>
 </section>
