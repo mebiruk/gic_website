@@ -3,11 +3,11 @@
 <section class="hero-section-page-title overlay bg-cover" data-background="pic2.jpg">
 <style scoped>
 .on-the-fly-behavior {
-    margin-top: 145px;
+    margin-left: -7vh; margin-right: -7vh;
 }
 @media (max-width: 1000px) {
     .on-the-fly-behavior {
-        margin-top: 175px;
+      margin-left: 7vh; margin-right: 1vh;
     }
 }
 </style>
@@ -30,7 +30,7 @@
         <% if Program.where(study_level: 'undergraduate').where(department_id: dep.id).blank? %>
         <%else%>
         <h4 class="text-center mb-3"><%= dep.name%> Department Programs</h4>
-        <div class="row" style="margin-left: 7vh; margin-right: 1vh;">
+        <div class="row on-the-fly-behavior">
         <% end %>
         <%Program.where(study_level: 'undergraduate').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->
