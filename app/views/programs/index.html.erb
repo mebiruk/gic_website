@@ -25,14 +25,14 @@
 </section>
 <section class="section">
 <div class="container">
-    <h2 class="text-center mb-3">Our Graduate Programs</h2>
+    <h2 class="text-center mb-3">Our Undergraduate Programs</h2>
     <%Department.all.each do |dep|%>
-        <% if Program.where(study_level: 'graduate').where(department_id: dep.id).blank? %>
+        <% if Program.where(study_level: 'undergraduate').where(department_id: dep.id).blank? %>
         <%else%>
         <h4 class="text-center mb-3"><%= dep.name%> Department Programs</h4>
         <div class="row" style="margin-left: 7vh; margin-right: 1vh;">
         <% end %>
-        <%Program.where(study_level: 'graduate').where(department_id: dep.id).each do |pro|%>
+        <%Program.where(study_level: 'undergraduate').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->
             <div class="col-lg-3 mb-5 d-flex align-self-stretch" style="width: 23rem;">
             <div class="card p-0 border-primary rounded-0 hover-shadow">
