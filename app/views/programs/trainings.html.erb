@@ -6,9 +6,16 @@
             margin-top: 145px;
         }
 
+        .on-the-fly-behavior-button {
+            width: 45hv;
+        }
+
         @media (max-width: 1000px) {
             .on-the-fly-behavior {
                 margin-top: 175px;
+            }
+            .on-the-fly-behavior-button {
+                max-width: 45hv;
             }
         }
     </style>
@@ -33,8 +40,7 @@
     <%Department.all.each do |dep|%>
         <% if Program.where(study_level: 'training').where(department_id: dep.id).blank? %>
         <%else%>
-        <h4 class="text-center mb-3"><%= dep.name%> Department Trainings</h4>
-        <div class="row" style="margin-left: 7vh; margin-right: 1vh;">
+        <div class="row" style="margin-left: 2vh; margin-right: 1vh;">
         <% end %>
         <%Program.where(study_level: 'training').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->
@@ -50,7 +56,7 @@
                         <h4 class="card-title"><%=pro.program_name.html_safe%></h4>
                     <%end%>
                     <p class="card-text mb-1"><%=pro.overview.truncate(140).html_safe%></p>
-                    <%= link_to 'Read More', program_path(pro), class:"btn btn-primary btn-sm rounded", style:"position: absolute; bottom: 0; display: block; width: 45vh;"%>
+                    <%= link_to 'Read More', program_path(pro), class:"btn btn-primary btn-sm rounded on-the-fly-behavior-button", style:"position: absolute; bottom: 0; display: block;"%>
                 </div>
             </div>
             </div>
@@ -67,8 +73,7 @@
     <%Department.all.each do |dep|%>
         <% if Program.where(study_level: 'research').where(department_id: dep.id).blank? %>
         <%else%>
-        <h4 class="text-center mb-3"><%= dep.name%> Department Research</h4>
-        <div class="row" style="margin-left: 7vh; margin-right: 1vh;">
+        <div class="row" style="margin-left: 2vh; margin-right: 1vh;">
         <% end %>
         <%Program.where(study_level: 'research').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->
@@ -84,7 +89,7 @@
                     <h4 class="card-title"><%=pro.program_name.html_safe%></h4>
                 <%end%>
                 <p class="card-text mb-1"><%=pro.overview.truncate(140).html_safe%></p>
-                <%= link_to 'Read More', program_path(pro), class:"btn btn-primary btn-sm rounded mt-4", style:"position: absolute; bottom: 0; display: block; width: 45vh;" %>
+                <%= link_to 'Read More', program_path(pro), class:"btn btn-primary btn-sm rounded on-the-fly-behavior-button", style:"position: absolute; bottom: 0; display: block;" %>
                 </div>
             </div>
             </div>
