@@ -2,17 +2,17 @@
     <!-- page title -->
 <section class="hero-section-page-title overlay bg-cover" data-background="pic2.jpg">
     <style scoped>
-        .on-the-fly-behavior {
-            margin-top: 145px;
-        }
-
         .on-the-fly-behavior-button {
             width: 45hv;
         }
-
+        .on-the-fly-behavior {
+            margin-left: -7vh;
+            margin-right: -7vh;
+        }
         @media (max-width: 1000px) {
             .on-the-fly-behavior {
-                margin-top: 175px;
+              margin-left: 1vh; 
+              margin-right: 1vh;
             }
             .on-the-fly-behavior-button {
                 max-width: 45hv;
@@ -40,7 +40,7 @@
     <%Department.all.each do |dep|%>
         <% if Program.where(study_level: 'training').where(department_id: dep.id).blank? %>
         <%else%>
-        <div class="row" style="margin-left: 2vh; margin-right: 1vh;">
+        <div class="row on-the-fly-behavior">
         <% end %>
         <%Program.where(study_level: 'training').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->
@@ -73,7 +73,7 @@
     <%Department.all.each do |dep|%>
         <% if Program.where(study_level: 'research').where(department_id: dep.id).blank? %>
         <%else%>
-        <div class="row" style="margin-left: 2vh; margin-right: 1vh;">
+        <div class="row on-the-fly-behavior">
         <% end %>
         <%Program.where(study_level: 'research').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->
