@@ -98,13 +98,14 @@
     <% end %>
     </div>
 </section>
+
 <section class="section">
 <div class="container">
     <h2 class="text-center mb-3">Our Graduate Programs</h2>
     <%Department.all.each do |dep|%>
         <% if Program.where(study_level: 'graduate').where(department_id: dep.id).blank? %>
         <%else%>
-        <div class="row" style="margin-left: 7vh; margin-right: 1vh;">
+        <div class="row on-the-fly-behavior">
         <% end %>
         <%Program.where(study_level: 'graduate').where(department_id: dep.id).each do |pro|%>
             <!-- course item -->

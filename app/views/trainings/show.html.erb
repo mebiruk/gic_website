@@ -1,0 +1,72 @@
+<main id="main">
+<!-- page title -->
+<section class="hero-section-page-title overlay bg-cover" data-background="../pic2.jpg">
+<style scoped>
+.on-the-fly-behavior {
+  margin-top: 145px;
+}
+@media (max-width: 1000px) {
+  .on-the-fly-behavior {
+      margin-top: 175px;
+  }
+}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <ul class="list-inline custom-breadcrumb">
+        <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html"><%=@programs.training_name%></a></li>
+        <li class="list-inline-item text-white h3 font-secondary "></li>
+      </ul>
+      <p class="text-lighten">Our programs offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+    </div>
+  </div>
+</div>
+</section>
+<!-- /page title -->
+  <!-- ======= Cource Details Section ======= -->
+  <section id="course-details" class="course-details">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2><%= @programs.training_name.html_safe %></h2>
+          <%= image_tag @programs.photo, class: "img-fluid" %>
+          <h3><%= @programs.training_name.html_safe %></h3>
+          <%= @programs.training_description.html_safe %>
+        </div>
+        <div class="col-lg-4">
+          <div>
+            <div>
+              <div class="mb-5">
+                <div class="course-info d-flex justify-content-between align-items-center bg-primary">
+                  <h3 class="text-white">Training Includes</h3>
+                </div>
+                <% @trainingList.where(training_id: @programs.id).each do |career| %>
+                  <div class="course-info d-flex align-items-center">
+                  <i class="bx bx-bookmark mr-2">  </i><%= career.title.html_safe %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center bg-primary">
+              <h3 class="text-white">Program Info</h3>
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Study Level</h5>
+              Training
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Program Duration</h5>
+              <%= @programs.training_duration %> Month
+            </div>
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Total tuition</h5>
+              <%= number_to_currency(@programs.total_tuition, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2) %>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+</main>

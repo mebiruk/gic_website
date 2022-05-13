@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :frequently_asked_questions
   resources :branches
   get 'contact' => 'pages#contact'
-  get 'trainings' => "programs#trainings"
-  get 'training_detail' => "programs#training_detail"
+  # get 'trainings' => "programs#trainings"
+  # get 'training_detail' => "programs#training_detail"
   get 'about' => 'pages#about'
   get 'accreditation' => 'pages#accreditation'
   post 'request'=>'requests#create'
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :almunis
   resources :staffs
   resources :vacancies
+  resources :trainings
   resource  :visitor_comments
   resources :how_tos do
     resources :steps
