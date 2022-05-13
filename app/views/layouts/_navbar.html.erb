@@ -5,12 +5,12 @@
     <div class="container">
       <div class="row no-gutters">
         <div class="col-lg-4 text-center text-lg-left">
-          <a class="text-color mr-3" href="callto:+2510118888863"><strong>CALL</strong> 011 8 88 88 63</a>
+          <a class="text-color mr-3" href="callto:<%= College.last.phone_number %>"><strong>CALL</strong> <%= College.last.phone_number %></a>
           <ul class="list-inline d-inline">
-            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-facebook" style="font-size: 18px;"></i></i></a></li>
-            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-twitter" style="font-size: 18px;"></i></a></li>
-            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-linkedin" style="font-size: 18px;"></i></a></li>
-            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-instagram" style="font-size: 18px;"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-facebook" style="font-size: 18px;"></i></i><%= College.last.facebook_handle%></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-twitter" style="font-size: 18px;"></i><%= College.last.twitter_handle%></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-linkedin" style="font-size: 18px;"></i><%= College.last.linkedin_handle%></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="bx bxl-instagram" style="font-size: 18px;"></i><%= College.last.instagram_handle%></a></li>
           </ul>
         </div>
         <div class="col-lg-8 text-center text-lg-right">
