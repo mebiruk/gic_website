@@ -206,7 +206,7 @@
           <%else%>
           <div class="row on-the-fly-behavior-training">
           <% end %>
-              <%Training.all.each do |pro|%>
+              <%Training.all.limit(3).each do |pro|%>
                   <!-- course item -->
                   <div class="col-lg-4">
                   <div class="card p-0 border-primary rounded-0 hover-shadow">
