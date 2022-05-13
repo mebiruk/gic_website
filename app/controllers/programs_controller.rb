@@ -1,5 +1,6 @@
 class ProgramsController < ApplicationController
   before_action :set_program, only: %i[ show edit update destroy ]
+  before_action :set_training, only: %i[ training_detail ]
 
   # GET /programs or /programs.json
   def index
@@ -10,6 +11,7 @@ class ProgramsController < ApplicationController
 
   def trainings
      @programs = Program.all.order("created_at DESC")
+    @trainings = Training.all.order("created_at DESC")
     @marketing = MarketingSection.all.order("created_at DESC")
   
   end
@@ -18,6 +20,12 @@ class ProgramsController < ApplicationController
     @programs = Program.find(params[:id])
     @marketing = MarketingSection.all.order("created_at DESC")
     @careerOpportunity = CareerOpportunity.all.order("created_at DESC")
+  end
+
+  def training_detail
+    @programs = Training.find(params[:id])
+    @marketing = MarketingSection.all.order("created_at DESC")
+    @trainingList = TrainingList.all.order("created_at DESC")
   end
 
   # GET /programs/new
@@ -70,6 +78,10 @@ class ProgramsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_program
       @program = Program.find(params[:id])
+    end
+
+    def set_training
+      @program = Training.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

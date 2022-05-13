@@ -42,22 +42,21 @@
     						<div class="info-box">
     							<i class="bx bx-map"></i>
     							<h3>Our Address</h3>
-    							<p>Saris nearest to Commercial Bank of Ethiopia</p>
-								<p>Addis Ababa, Ethiopia</p>
+    							<p><%= College.last.country %><br><%= College.last.city %><br><%= College.last.sub_city %></p>
     						</div>
     					</div>
     					<div class="col-md-6">
     						<div class="info-box mt-4">
     							<i class="bx bx-envelope"></i>
     							<h3>Email Us</h3>
-    							<p>info@gic@edu.et<br>contact@gic@edu.et</p>
+    							<p><%= College.last.email %></p>
     						</div>
     					</div>
     					<div class="col-md-6">
     						<div class="info-box mt-4">
     							<i class="bx bx-phone-call"></i>
     							<h3>Call Us</h3>
-    							<p>+251-11-8-888863<br>+251-11-8-885152</p>
+    							<p><%= College.last.phone_number %><br><%= College.last.alternative_phone_number %></p>
     						</div>
     					</div>
     				</div>

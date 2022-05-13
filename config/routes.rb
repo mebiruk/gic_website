@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :branches
   get 'contact' => 'pages#contact'
   get 'trainings' => "programs#trainings"
+  get 'training_detail' => "programs#training_detail"
   get 'about' => 'pages#about'
   get 'accreditation' => 'pages#accreditation'
   post 'request'=>'requests#create'

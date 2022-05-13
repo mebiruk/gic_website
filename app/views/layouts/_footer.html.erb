@@ -6,12 +6,14 @@
         <div class="col-lg-3 col-md-6 footer-contact">
           <h3><%= image_tag "bglogo.png", :style =>"height:100px; width:150px;"%></h3>
           <p class="text-white">
-          Saris nearest to Commercial Bank of Ethiopia  <br>
-            Addis Ababa, Ethiopia<br>
-            <br>
-            <strong>Phone:</strong> 011 8 88 88 63<br>
-            <strong>Phone:</strong> 011 888 51 52<br>
-            <strong>Email:</strong> <a href='Registrar.grandintcollege@edu.et'>Registrar.grandintcollege@edu.et<br></a>
+          <%= College.last.country %>  <br>
+          <%= College.last.city %> <br>
+          <%= College.last.sub_city %> <br>
+
+          <br>
+            <strong>Phone:</strong> <%= College.last.phone_number %><br>
+            <strong>Phone:</strong> <%= College.last.alternative_phone_number %><br>
+            <strong>Email:</strong> <a href='Registrar.grandintcollege@edu.et'><%= College.last.email %><br></a>
           </p>
         </div>
         <div class="col-lg-2 col-md-6 footer-links">

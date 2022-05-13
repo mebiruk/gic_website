@@ -13,6 +13,7 @@ class Ability
         can :manage, AdminUser
         can :manage, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
         can :manage, Program
+        can :manage, Training
         can :manage, College
         # #TODO: after one college created disable new action   
         # cannot :destroy, College, id: 1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_214136) do
+ActiveRecord::Schema.define(version: 2022_05_13_001927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -319,6 +319,30 @@ ActiveRecord::Schema.define(version: 2022_04_10_214136) do
     t.index ["how_to_id"], name: "index_steps_on_how_to_id"
   end
 
+  create_table "training_lists", force: :cascade do |t|
+    t.bigint "training_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["training_id"], name: "index_training_lists_on_training_id"
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "training_name", null: false
+    t.string "study_level", null: false
+    t.text "overview"
+    t.text "training_description"
+    t.integer "training_duration"
+    t.decimal "total_tuition", default: "0.0"
+    t.string "created_by"
+    t.string "last_updated_by"
+    t.string "slug"
+    t.boolean "display_on_home"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_trainings_on_slug", unique: true
+  end
+
   create_table "vacancies", force: :cascade do |t|
     t.bigint "admin_user_id"
     t.string "title", null: false
@@ -366,5 +390,6 @@ ActiveRecord::Schema.define(version: 2022_04_10_214136) do
   add_foreign_key "programs", "facuilties"
   add_foreign_key "requests", "almunis"
   add_foreign_key "steps", "how_tos"
+  add_foreign_key "training_lists", "trainings"
   add_foreign_key "vacancies", "admin_users"
 end

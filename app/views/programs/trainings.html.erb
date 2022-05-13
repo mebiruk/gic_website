@@ -37,33 +37,27 @@
 <section class="section">
 <div class="container">
     <h2 class="text-center mb-3">Our Trainings</h2>
-    <%Department.all.each do |dep|%>
-        <% if Program.where(study_level: 'training').where(department_id: dep.id).blank? %>
-        <%else%>
-        <div class="row on-the-fly-behavior">
-        <% end %>
-        <%Program.where(study_level: 'training').where(department_id: dep.id).each do |pro|%>
+        <%Training.all.each do |pro|%>
             <!-- course item -->
             <div class="col-lg-3 mb-5 d-flex align-self-stretch" style="width: 23rem;">
             <div class="card p-0 border-primary rounded-0 hover-shadow">
             <%= image_tag pro.photo, class:"card-img-top rounded-0", style:"height: 28vh;"%>
                 <div class="card-body h-100 d-flex flex-column" style="height: 50vh;">
                     <ul class="list-inline mb-2">
-                    <li class="list-inline-item text-uppercase text-color"></i><%= pro.modality%></li>
+                    <li class="list-inline-item text-uppercase text-color"></i>Training</li>
 
                     </ul>
                     <%=link_to program_path(pro) do %>
-                        <h4 class="card-title"><%=pro.program_name.html_safe%></h4>
+                        <h4 class="card-title"><%=pro.training_name.html_safe%></h4>
                     <%end%>
                     <p class="card-text mb-1"><%=pro.overview.truncate(140).html_safe%></p>
-                    <%= link_to 'Read More', program_path(pro), class:"btn btn-primary btn-sm rounded on-the-fly-behavior-button", style:"position: absolute; bottom: 0; display: block;"%>
+                    <%= link_to 'Read More', training_detail_path({:id => pro}), class:"btn btn-primary btn-sm rounded on-the-fly-behavior-button", style:"position: absolute; bottom: 0; display: block;"%>
                 </div>
             </div>
             </div>
             <!-- course item -->
         <%end%>
         </div>
-    <% end %>
     </div>
 </section>
 
